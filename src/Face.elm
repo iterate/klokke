@@ -1,8 +1,8 @@
 module Face exposing (view)
 
 import Color
-import Face.Segments exposing (segment0, segment1, segment2, segment3, segment4, segment5, segment6)
 import Html
+import Segments exposing (segment0, segment1, segment2, segment3, segment4, segment5, segment6)
 import Time exposing (Posix)
 import TypedSvg
 import TypedSvg.Attributes exposing (fill, viewBox)

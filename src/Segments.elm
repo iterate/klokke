@@ -1,4 +1,4 @@
-module Face.Segments exposing
+module Segments exposing
     ( segment0
     , segment1
     , segment2
@@ -8,7 +8,6 @@ module Face.Segments exposing
     , segment6
     )
 
-import Html
 import TypedSvg
 import TypedSvg.Attributes exposing (d)
 import TypedSvg.Core
