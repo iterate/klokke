@@ -87,7 +87,17 @@ segm second filter path =
 kulour : Bool -> Color.Color
 kulour status =
     if status then
-        Color.rgb 0x00 0x00 0x00
+        on
 
     else
-        Color.rgb (0x7E / 255) (0x88 / 255) (0x91 / 255)
+        off
+
+
+on : Color.Color
+on =
+    Color.rgb 0x00 0x00 0x00
+
+
+off : Color.Color
+off =
+    Color.rgb (0xB0 / 255) (0xB0 / 255) (0xB0 / 255)
