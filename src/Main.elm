@@ -5,6 +5,7 @@ import Element
 import Element.Background
 import Face
 import Html exposing (Html)
+import Task
 import Time exposing (Posix)
 
 
@@ -26,12 +27,13 @@ type alias Model =
 
 type Msg
     = Tick Posix
+    | AdjustTimeZone Time.Zone
 
 
-init : () -> ( Model, Cmd msg )
+init : () -> ( Model, Cmd Msg )
 init _ =
     ( Model Time.utc (Time.millisToPosix 0)
-    , Cmd.none
+    , Task.perform AdjustTimeZone Time.here
     )
 
 
@@ -44,10 +46,13 @@ view model =
 
 
 update : Msg -> Model -> ( Model, Cmd msg )
-update msg _ =
+update msg model =
     case msg of
         Tick posix ->
-            ( Model Time.utc posix, Cmd.none )
+            ( { model | time = posix }, Cmd.none )
+
+        AdjustTimeZone timeZone ->
+            ( { model | zone = timeZone }, Cmd.none )
 
 
 subscriptions : Model -> Sub Msg
