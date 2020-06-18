@@ -7,7 +7,7 @@ import Time exposing (Posix)
 import TypedSvg
 import TypedSvg.Attributes exposing (fill, transform, viewBox)
 import TypedSvg.Core exposing (Svg)
-import TypedSvg.Types exposing (Fill(..), Transform(..))
+import TypedSvg.Types exposing (Paint(..), Transform(..))
 
 
 view : Posix -> Html.Html msg
@@ -81,7 +81,7 @@ segm second filter path =
         status =
             not <| List.member second filter
     in
-    TypedSvg.g [ fill <| Fill (kulour status) ] [ path ]
+    TypedSvg.g [ fill <| Paint (kulour status) ] [ path ]
 
 
 kulour : Bool -> Color.Color
