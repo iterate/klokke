@@ -5,7 +5,7 @@ import Html
 import Segments exposing (segment0, segment1, segment2, segment3, segment4, segment5, segment6)
 import Time exposing (Posix)
 import TypedSvg
-import TypedSvg.Attributes exposing (fill, transform, viewBox)
+import TypedSvg.Attributes exposing (fill, style, transform, viewBox)
 import TypedSvg.Core exposing (Svg)
 import TypedSvg.Types exposing (Paint(..), Transform(..))
 
@@ -52,7 +52,7 @@ view posix =
                 |> String.right 2
                 |> String.left 1
     in
-    TypedSvg.svg [ viewBox 0 0 1000 160 ]
+    TypedSvg.svg [ viewBox 0 0 1000 160, style "width: 100vw" ]
         [ digit hour1 0
         , digit hour0 100
         , digit minute1 200
